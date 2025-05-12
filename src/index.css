@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@theme {
+    --breakpoint-xs: 30rem;
+
+    --font-pop: 'Poppins',san-serif;
+
+  --color-p-cyan: hsl(180,66%,49%);
+  --color-p-darkViolet: hsl(257,27%,26%);
+
+  --color-s-red: hsl(0,87%,67%);
+
+  --color-n-lGray: hsl(0,0%, 75%);
+  --color-n-gViolet: hsl(257,7%, 63%);
+  --color-n-vDarkBlue: hsl(255,11%, 22%);
+  --color-n-gray: hsl(268,8%, 14%);
+
+  --text-fluid :  clamp(1.875rem, 1.878vw + 1.435rem, 3.125rem);
+
+  --text-hero-fluid :  clamp(1.875rem, 2.437vw + 1.305rem, 3.438rem);
+  --leading-hero : 1.1
+  --text-dy-desktopNavFont : clamp(0.875rem, 0.526vw + 0.664rem, 1.125rem);
+  /* --spacing-dyp : clamp(0.813rem, -0.491rem + 5.561vi, 4.375rem); */
+  --spacing-dyp : clamp(0.938rem, -1.692rem + 11.22vi, 8.125rem);
+
+  --width-mobileNav : calc(100% - 30px)
+}
+
+
