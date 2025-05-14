@@ -24,16 +24,21 @@ export default function Header({logoSrc,logoAlt,mobileIcon,navLinks}) {
       {/* header  */}
       <header className="flex items-center justify-between py-4 px-dyp">
         <div className="w-[100px]">
+        <a href="#main-content" className="sr-only focus:not-sr-only">
+          Skip to main content
+        </a>
+        <a href="/" aria-label="Home">
           <img
             className="max-w-full"
             src={logoSrc}
             alt={logoAlt}
+            width={100}
           />
+          </a>
         </div>
 
         {/* nav */}
-        <nav aria-label="mainNav" className=" sm:flex sm:grow">
-
+        <nav aria-label="Main navigation" className="sm:flex sm:grow">
           {/* show hamburger menu on the mobile screen */}
           <button
             onClick={toggleMenu}
@@ -44,7 +49,9 @@ export default function Header({logoSrc,logoAlt,mobileIcon,navLinks}) {
           >
             <img
               src={isMenuOpen ? mobileIcon.close : mobileIcon.open}
-              alt="Menu toggle"
+              alt=""
+              width={24}
+              height={24}
               aria-hidden="true"
             />
           </button>
@@ -62,6 +69,7 @@ export default function Header({logoSrc,logoAlt,mobileIcon,navLinks}) {
 
 function MobileNav({ links, isMenuOpen }) {
   return (
+
     <>
       <ul
         id="mobileMenu"

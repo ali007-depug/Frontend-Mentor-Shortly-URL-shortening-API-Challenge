@@ -42,7 +42,7 @@ export default function Footer() {
         {/* icons */}
         <Icons
           className="flex gap-8  sm:self-start justify-center"
-          iconStyle="size-5 transition-all duration-300 ease-in-out hover:size-6 focus:outline-none focus-visible:ring-2 focus:ring-n-vDarkBlue"
+          iconStyle="size-5 transition-all duration-300 ease-in-out hover:size-6 focus:outline-none focus-visible:ring-2 focus:ring-n-vDarkBlue cursor-pointer"
         />
       </div>
     </footer>

@@ -55,7 +55,7 @@ export default function Url() {
 
   return (
     <>
-      <div className="flex max-sm:flex-col gap-3  bg-p-darkViolet py-8 px-5 rounded relative top-[-52px] bg-[url(bg-shorten-mobile.svg)] sm:bg-[url(bg-shorten-desktop.svg)]">
+      <section className="flex max-sm:flex-col gap-3  bg-p-darkViolet py-8 px-5 rounded relative top-[-52px] bg-[url(bg-shorten-mobile.svg)] sm:bg-[url(bg-shorten-desktop.svg)]" aria-label="URL Shortener">
       <label htmlFor="url" className="sr-only">Enter URL</label>
         <input
           type="text"
@@ -82,7 +82,7 @@ export default function Url() {
           hasLink={false}
           onClick={handleBtnClicked}
         />
-      </div>
+      </section>
 
       {/* show the links  */}
       {IsShowExLinks &&
