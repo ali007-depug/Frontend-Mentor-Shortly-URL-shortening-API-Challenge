@@ -1,35 +1,59 @@
-const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
+import express from 'express';
+import axios from 'axios';
+import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+
+// Load env variables
+dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
-// Middleware setup
+// Config
+const PORT = process.env.PORT || 3001;
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
+// Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', // Replace with your frontend URL
-  methods: ['POST'], // Explicitly allow POST
-})); // Enable CORS for all routes
-app.use(express.json()); // Parse JSON request bodies
+  origin: FRONTEND_URL,
+  methods: ['POST'],
+}));
+app.use(express.json());
 
-// POST endpoint for shortening URLs
+// ========== POST /shorten ========== //
 app.post('/shorten', async (req, res) => {
+  const { url } = req.body;
+
+  if (!url) return res.status(400).json({ error: 'URL is required' });
+
   try {
-    const { url } = req.body;
-
-    // Forward the request to CleanURI's API
-    const response = await axios.post('https://cleanuri.com/api/v1/shorten', {
-      url: url,
-    });
-
-    // Send the shortened URL back to the frontend
+    const response = await axios.post('https://cleanuri.com/api/v1/shorten', { url });
     res.json(response.data);
   } catch (error) {
-    console.error('Error shortening URL:', error);
-    res.status(500).json({ error: 'Failed to shorten URL' });
+    console.error('Shortening error:', error.message);
+    res.status(500).json({ 
+      error: 'Failed to shorten URL',
+      ...(NODE_ENV === 'development' && { details: error.message })
+    });
   }
 });
 
-// Start the server
-const PORT = 3001;
+// ========== Serve Frontend in Production ========== //
+if (NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  });
+}
+
+// ========== Start Server ========== //
 app.listen(PORT, () => {
-  console.log(`Backend running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running in ${NODE_ENV} mode on http://localhost:${PORT}`);
+  console.log(`✅ Allowed CORS origin: ${FRONTEND_URL}`);
 });
