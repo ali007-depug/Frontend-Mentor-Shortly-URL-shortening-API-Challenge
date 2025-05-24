@@ -1,14 +1,9 @@
 # Frontend (Vite/React)
-frontend/node_modules/
-frontend/dist/
-frontend/.env.development
-frontend/.env.production
+node_modules/
+dist/
+.env.development
+.env.production
 
-# Backend (Node.js)
-backend/node_modules/
-backend/.env.development
-backend/.env.production
-.env
 
 # General
 .DS_Store
