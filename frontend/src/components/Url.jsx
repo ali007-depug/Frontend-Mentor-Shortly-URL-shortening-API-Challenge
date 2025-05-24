@@ -55,9 +55,12 @@ export default function Url() {
     // if(isVaildLink){
     setIsLoading(true);
     try {
-      console.log(linkVaildtion);
+      if (!link || !link.startsWith("http")) {
+        setIsValidLink(false);
+        return;
+      }
       // Attempt to make an HTTP request to our backend API
-      const response = await fetch("http://localhost:3001/shorten", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/shorten`, {
         // Specify this is a POST request (used for creating/modifying data)
         method: "POST",
 
@@ -82,7 +85,7 @@ export default function Url() {
           shorten: data.result_url,
           copied: false,
         };
-        const updatedLinks = [...links , newLink];
+        const updatedLinks = [...links, newLink];
         setLinks(updatedLinks);
         setLink("");
         setIsValidLink(linkVaildtion);
