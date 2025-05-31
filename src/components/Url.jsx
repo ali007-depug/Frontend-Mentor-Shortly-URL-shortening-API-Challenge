@@ -60,8 +60,7 @@ export default function Url() {
         return;
       }
       // Attempt to make an HTTP request to our backend API
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/shorten`, {
-        // Specify this is a POST request (used for creating/modifying data)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/shorten`, {        // Specify this is a POST request (used for creating/modifying data)
         method: "POST",
 
         // Set request headers to tell the server we're sending JSON data
