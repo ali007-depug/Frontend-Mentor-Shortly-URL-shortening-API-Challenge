@@ -1,8 +1,8 @@
 # Frontend (Vite/React)
 node_modules/
 dist/
-.env.development
-.env.production
+.env
+.env
 
 
 # General
