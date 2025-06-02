@@ -45,7 +45,7 @@ function StatisticsCards() {
           <div
             key={card.title}
             className="bg-white shadow-md rounded flex  flex-col max-md:items-center max-md:px-dyp sm:px-4 even:top-8 last:top-16 relative z-2"
-          >
+          role="listitem">
             {/* card img */}
             <div className="rounded-full bg-n-vDarkBlue size-18 flex items-center justify-center relative mt-[-35.5px] ">
               <img src={card.icon} alt={card.title + "icon"} />
