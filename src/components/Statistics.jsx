@@ -51,9 +51,9 @@ function StatisticsCards() {
               <img src={card.icon} alt={card.title + "icon"} />
             </div>
             {/* card title */}
-            <h3 className="capitalize text-n-vDarkBlue font-bold text-xl mb-5">
+            <p className="capitalize text-n-vDarkBlue font-bold text-xl mb-5">
               {card.title}
-            </h3>
+            </p>
             {/* card desc */}
             <p className="text-n-lGray font-bold text-sm mb-8">{card.desc}</p>
           </div>

@@ -52,7 +52,7 @@ export default function Footer() {
 function FooterSection({ title, links }) {
   return (
     <div className="flex flex-col gap-3">
-      <h4 className="text-white font-bold">{title}</h4>
+      <strong className="text-white font-bold">{title}</strong>
       <ul className="space-y-2">
         {links.map((link) => (
           <li key={link}>
@@ -93,7 +93,7 @@ function Icons({ className, iconStyle }) {
     <div className={className}>
       {icons.map((icon, i) => (
         <a key={icon.iconName} aria-label={`visit our ${icon.iconName}`}>
-          <img key={i} src={icon.icon} aria-hidden className={iconStyle} />
+          <img key={i} src={icon.icon} alt={`${icon.iconName} icon`} className={iconStyle} />
         </a>
       ))}
     </div>
