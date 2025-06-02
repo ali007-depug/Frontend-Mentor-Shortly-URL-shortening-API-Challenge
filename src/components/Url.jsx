@@ -96,7 +96,7 @@ export default function Url() {
   return (
     <>
       {/* The main Section for the URL input + the result of shorten links */}
-      <section className="">
+      <section className=" bg-n-lGray">
         {/* input + label Wrapper  */}
         <div
           className="flex max-sm:flex-col gap-3  bg-p-darkViolet py-8 px-5 rounded relative top-[-52px] bg-[url(bg-shorten-mobile.svg)] sm:bg-[url(bg-shorten-desktop.svg)]"

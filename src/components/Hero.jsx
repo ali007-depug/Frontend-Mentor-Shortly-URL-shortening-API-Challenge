@@ -30,7 +30,7 @@ export default function Hero() {
       </section>
 
       {/* hero img */}
-      <section  className="hero__img sm:w-1/2 w-prag-dyp max-sm:-order-1">
+      <section className="hero__img sm:w-1/2 w-prag-dyp max-sm:-order-1">
       <figure>
         <figcaption className="sr-only">
           Illustration showing a person working with data analytics
